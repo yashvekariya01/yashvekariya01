@@ -13,6 +13,7 @@ Usage:
 import argparse
 import io
 import os
+os.environ["U2NET_HOME"] = os.path.join(os.getcwd(), ".u2net")
 from pathlib import Path
 
 try:

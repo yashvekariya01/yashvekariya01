@@ -1,0 +1,31 @@
+import os
+
+def generate_info_card():
+    svg_content = """<svg fill="none" width="490" height="280" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #0d1117; rx: 10px; }
+    .border { stroke: #30363d; stroke-width: 1px; }
+    .title { font: bold 14px 'Fira Code', monospace; fill: #58a6ff; }
+    .key { font: bold 12px 'Fira Code', monospace; fill: #79c0ff; }
+    .val { font: 12px 'Fira Code', monospace; fill: #c9d1d9; }
+    .line { opacity: 0; animation: fadeIn 0.5s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+  </style>
+  <rect width="100%" height="100%" class="bg border" />
+  <g transform="translate(20, 30)">
+    <text y="0" class="title">yashvekariya01@github ~ $ neofetch</text>
+    <text y="35" class="line key" style="animation-delay: 0.2s;">OS: <tspan class="val">Full-Stack Developer (MERN / Laravel)</tspan></text>
+    <text y="60" class="line key" style="animation-delay: 0.4s;">Host: <tspan class="val">Marwadi University (BCA)</tspan></text>
+    <text y="85" class="line key" style="animation-delay: 0.6s;">Kernel: <tspan class="val">PHP, Java, JavaScript, Python</tspan></text>
+    <text y="110" class="line key" style="animation-delay: 0.8s;">Uptime: <tspan class="val">Building Scalable Apps & Cloud Systems</tspan></text>
+    <text y="135" class="line key" style="animation-delay: 1.0s;">IDE: <tspan class="val">VS Code / Android Studio</tspan></text>
+    <text y="160" class="line key" style="animation-delay: 1.2s;">Projects: <tspan class="val">GhostMessage, MicCast, Pizzeria</tspan></text>
+  </g>
+</svg>"""
+    
+    with open("info-card.svg", "w", encoding="utf-8") as f:
+        f.write(svg_content)
+    print("info-card.svg generated!")
+
+if __name__ == "__main__":
+    generate_info_card()
