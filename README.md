@@ -13,7 +13,7 @@
 
 <div align="center">
 
-  <h3><code>yash@github ~ $ ./snake-game.sh</code></h3>
+  <h3><code>yash@github ~ $ ./contribution-game.sh</code></h3>
 
   <img
     src="github-contribution-grid-snake.svg"
@@ -43,7 +43,7 @@
       />
     </a>
 
-    <a href="https://www.linkedin.com/in/yashvekariya01/" target="_blank">
+    <a href="https://www.linkedin.com/in/yash-vekariya-672bbb2a0/" target="_blank">
       <img
         src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
         alt="LinkedIn"
