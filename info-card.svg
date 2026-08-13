@@ -1,21 +1,92 @@
-<svg fill="none" width="490" height="280" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" width="490" height="280" viewBox="0 0 490 280" xmlns="http://www.w3.org/2000/svg">
   <style>
     .bg { fill: #0d1117; rx: 10px; }
     .border { stroke: #30363d; stroke-width: 1px; }
-    .title { font: bold 14px 'Fira Code', monospace; fill: #58a6ff; }
-    .key { font: bold 12px 'Fira Code', monospace; fill: #79c0ff; }
-    .val { font: 12px 'Fira Code', monospace; fill: #c9d1d9; }
-    .line { opacity: 0; animation: fadeIn 0.5s forwards; }
-    @keyframes fadeIn { to { opacity: 1; } }
+    .title { font: bold 13px 'Fira Code', monospace; fill: #4af626; }
+    .separator { font: 12px 'Fira Code', monospace; fill: #8b949e; }
+    .key { font: bold 11.5px 'Fira Code', monospace; fill: #79c0ff; }
+    .val { font: 11.5px 'Fira Code', monospace; fill: #c9d1d9; }
+    
+    /* Logo glow effect */
+    .glowing-logo {
+      filter: drop-shadow(0px 0px 4px #58a6ff);
+    }
   </style>
+  
   <rect width="100%" height="100%" class="bg border" />
-  <g transform="translate(20, 30)">
-    <text y="0" class="title">yashvekariya01@github ~ $ neofetch</text>
-    <text y="35" class="line key" style="animation-delay: 0.2s;">OS: <tspan class="val">Full-Stack Developer (MERN / Laravel)</tspan></text>
-    <text y="60" class="line key" style="animation-delay: 0.4s;">Host: <tspan class="val">Marwadi University (BCA)</tspan></text>
-    <text y="85" class="line key" style="animation-delay: 0.6s;">Kernel: <tspan class="val">PHP, Java, JavaScript, Python</tspan></text>
-    <text y="110" class="line key" style="animation-delay: 0.8s;">Uptime: <tspan class="val">Building Scalable Apps & Cloud Systems</tspan></text>
-    <text y="135" class="line key" style="animation-delay: 1.0s;">IDE: <tspan class="val">VS Code / Android Studio</tspan></text>
-    <text y="160" class="line key" style="animation-delay: 1.2s;">Projects: <tspan class="val">GhostMessage, MicCast, Pizzeria</tspan></text>
+  
+  <!-- MacOS-style terminal buttons -->
+  <g transform="translate(15, 18)">
+    <circle cx="0" cy="0" r="4.5" fill="#ff5f56" />
+    <circle cx="12" cy="0" r="4.5" fill="#ffbd2e" />
+    <circle cx="24" cy="0" r="4.5" fill="#27c93f" />
+    <text x="40" y="4" font-family="'Fira Code', monospace" font-size="12" font-weight="bold" fill="#58a6ff">yash@github: ~/neofetch</text>
   </g>
+
+  <!-- Left Column: Terminal / Developer Neon Graphic Logo -->
+  <g transform="translate(25, 60)" class="glowing-logo">
+    <!-- Glowing Code bracket & Slash -->
+    <path d="M 15 25 L 0 40 L 15 55" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 45 25 L 60 40 L 45 55" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 25 15 L 35 65" stroke="#ffbd2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Outer accent rings or tech-hex shape -->
+    <path d="M 30 -5 L 65 15 L 65 65 L 30 85 L -5 65 L -5 15 Z" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3" fill="none" />
+    
+    <!-- User Initials / Tag -->
+    <text x="30" y="115" font-family="'Fira Code', monospace" font-size="15" font-weight="bold" fill="#4af626" text-anchor="middle">&lt;YASH&gt;</text>
+  </g>
+
+  <!-- Info lines -->
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.0s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.0s" fill="freeze" />
+      <text x="110" y="42" class="title">yashvekariya01@github ~ $ neofetch</text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.10s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.10s" fill="freeze" />
+      <text x="110" y="58" class="separator">------------------------</text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.22s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.22s" fill="freeze" />
+      <text x="110" y="78" class="key">OS: <tspan class="val">Yash Vekariya (Full-Stack Developer)</tspan></text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.34s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.34s" fill="freeze" />
+      <text x="110" y="98" class="key">Host: <tspan class="val">Marwadi University (BCA)</tspan></text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.46s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.46s" fill="freeze" />
+      <text x="110" y="118" class="key">Kernel: <tspan class="val">PHP, React, Next.js, Node.js, Java</tspan></text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.58s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.58s" fill="freeze" />
+      <text x="110" y="138" class="key">Shell: <tspan class="val">Laravel, MongoDB, MySQL</tspan></text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.70s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.70s" fill="freeze" />
+      <text x="110" y="158" class="key">Uptime: <tspan class="val">GhostMessage, MicCast, Pizzeria, Kisan Mitra</tspan></text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.82s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.82s" fill="freeze" />
+      <text x="110" y="178" class="key">Memory: <tspan class="val">Web Dev, Cloud Arcade, Tech Blogging</tspan></text>
+    </g>
+    <g>
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.94s" fill="freeze" />
+      <animateTransform attributeName="transform" type="translate" from="0, -10" to="0, 0" dur="0.4s" begin="0.94s" fill="freeze" />
+      <rect x="110" y="208" width="16" height="12" fill="#ff5f56" rx="2" />
+      <rect x="132" y="208" width="16" height="12" fill="#ffbd2e" rx="2" />
+      <rect x="154" y="208" width="16" height="12" fill="#27c93f" rx="2" />
+      <rect x="176" y="208" width="16" height="12" fill="#58a6ff" rx="2" />
+      <rect x="198" y="208" width="16" height="12" fill="#b392f0" rx="2" />
+      <rect x="220" y="208" width="16" height="12" fill="#79c0ff" rx="2" />
+    </g>
+
 </svg>
