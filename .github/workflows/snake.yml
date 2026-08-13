@@ -1,0 +1,33 @@
+name: Generate Snake Game
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate github-contribution-grid-snake.svg
+        uses: platane/snk@v3
+        with:
+          github_user_name: yashvekariya01
+          outputs: |
+            github-contribution-grid-snake.svg?palette=github-dark
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update contribution snake animation [skip ci]"
+          file_pattern: "github-contribution-grid-snake.svg"
