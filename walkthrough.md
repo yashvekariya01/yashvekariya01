@@ -4,33 +4,17 @@ This workspace contains all Python scripts, configuration files, and SVG assets 
 
 ## 🛠️ Architecture & Script Pipeline
 
-The architecture consists of a sequence of local Python jobs that scrape data, preprocess imagery, and compile animated SVGs suitable for rendering inside GitHub `<img>` CAMO tags (which strip scripts but fully support CSS/SMIL animations).
+The architecture consists of a sequence of local Python jobs that scrape data and compile animated SVGs suitable for rendering inside GitHub `<img>` CAMO tags (which strip scripts but fully support CSS/SMIL animations).
 
 ```mermaid
 graph TD
-    A[source-photo.jpg] -->|1. scripts/prep_photo.py| B[source-prepped.png]
-    B -->|2. scripts/make_ascii_svg.py| C[avi-ascii.svg]
-    D[Yash's Details] -->|3. scripts/make_info_card.py| E[info-card.svg]
-    F[GitHub Contributions Webpage] -->|4. scripts/fetch_contributions.py| G[data/contributions.json]
-    G -->|5. scripts/render_heatmap_svg.py| H[contrib-heatmap.svg]
-    C & E & H -->|6. Render side-by-side| I[README.md]
+    D[Yash's Details] -->|1. scripts/make_info_card.py| E[info-card.svg]
+    F[GitHub Contributions Webpage] -->|2. scripts/fetch_contributions.py| G[data/contributions.json]
+    G -->|3. scripts/render_heatmap_svg.py| H[contrib-heatmap.svg]
+    E & H -->|4. Render in layout| I[README.md]
 ```
 
-### 1. `scripts/prep_photo.py`
-Processes `source-photo.jpg` to isolate the portrait, align contrast, and output a clean monochrome PNG:
-*   Sets environment variable `U2NET_HOME` pointing to `.u2net` container to avoid OS permission issues on CI/CD pipelines.
-*   Removes image background using `rembg`.
-*   Composites subject onto a pure white background.
-*   Uses **OpenCV CLAHE** (Contrast Limited Adaptive Histogram Equalization) to maximize facial feature contrast.
-*   Converts to grayscale and saves to `source-prepped.png`.
-
-### 2. `scripts/make_ascii_svg.py`
-Converts `source-prepped.png` into character art grid with writing effects:
-*   Scales the prepped image to a monospaced grid (68 cols x 45 rows).
-*   Maps grayscale intensity to the character ramp `" .:-=+*cs#%@"` (white spaces map to background space ` `).
-*   **Animation**: Implements synchronized, staggered SMIL `<animate>` tags inside the SVG. Each row slides inside a clipping path mask from left to right on a top-to-bottom staggered delay (`0.04s` delay per row) to create a rolling terminal typing-reveal wave.
-
-### 3. `scripts/make_info_card.py`
+### 1. `scripts/make_info_card.py`
 Generates a gorgeous Matte Black `#0d1117` terminal card mock:
 *   Styled like a macOS neofetch system panel with close/minimize/zoom colored buttons.
 *   Draws a glowing neon blue code brace `</>` logo alongside custom Yash details mapped to system criteria (`OS`, `Host`, `Kernel`, `Shell`, `Uptime`, `Memory`).
@@ -62,7 +46,6 @@ To regenerate the profile assets locally, ensure the `.venv` is activated:
 .venv\Scripts\python scripts/fetch_contributions.py
 .venv\Scripts\python scripts/render_heatmap_svg.py
 .venv\Scripts\python scripts/make_info_card.py
-.venv\Scripts\python scripts/make_ascii_svg.py
 ```
 
 ## 🔄 Automating with GitHub Actions
@@ -100,14 +83,12 @@ jobs:
           python scripts/fetch_contributions.py
           python scripts/render_heatmap_svg.py
           python scripts/make_info_card.py
-          # ASCII generation is run after prep_photo (run manually or cache prepped photo)
-          python scripts/make_ascii_svg.py 
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add contrib-heatmap.svg info-card.svg avi-ascii.svg data/contributions.json
+          git add contrib-heatmap.svg info-card.svg data/contributions.json
           git diff --quiet & git diff --cached --quiet || git commit -m "auto-update: refresh contributions profile cards"
           git push
 ```

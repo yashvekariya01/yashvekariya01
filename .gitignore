@@ -1,7 +1,4 @@
 .venv/
-.u2net/
-*.onnx
-source-prepped.png
 __pycache__/
 *.pyc
 temp_scrape.py
