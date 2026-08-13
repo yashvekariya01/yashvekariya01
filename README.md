@@ -1,16 +1,3 @@
-<!-- <div align="center">
-
-  <h3><code>yash@github ~ $ ./snake-game.sh</code></h3>
-  <img src="github-contribution-grid-snake.svg" width="860" />
-
-  <br /><br />
-
-  <h3><code>yash@github ~ $ whoami</code></h3>
-  <img src="info-card.svg" width="490" alt="Yash's Info Card" />
-
-</div> -->
-
-
 <div align="center">
 
   <h3><code>yash@github ~ $ ./contribution-game.sh</code></h3>
@@ -23,7 +10,7 @@
 
   <br /><br />
 
-  <h3><code>yash@github ~ $ whoami</code></h3>
+  <h3><code>yash@github ~ $ ./whoami.sh</code></h3>
 
   <img
     src="info-card.svg"
