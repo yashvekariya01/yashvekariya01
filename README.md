@@ -15,6 +15,28 @@
 
 <div align="center">
 
+  <h3><code>yash@github ~ $ ./contribution-game.sh</code></h3>
+
+  <img
+    src="github-contribution-grid-snake.svg"
+    width="860"
+    alt="GitHub Contribution Snake"
+  />
+
+  <br /><br />
+
+  <h3><code>yash@github ~ $ whoami</code></h3>
+
+  <img
+    src="info-card.svg"
+    width="490"
+    alt="Yash's Info Card"
+  />
+
+</div>
+
+<div align="center">
+
   <br />
 
   <h3><code>yash@github ~ $ ./socials.sh</code></h3>
